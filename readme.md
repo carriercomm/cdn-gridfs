@@ -2,13 +2,13 @@
 
 #### Install
 
-```
+```bash
 $ git clone git@github.com:olebedev/cdn-gridfs.git
 $ cd cdn-gridfs
 ```
 Change `./src/conf.ls` file.
 
-```
+```bash
 $ npm i
 $ make build
 ```
@@ -19,7 +19,7 @@ Start application: `node ./build/app`.
 Now. You are ready for uplpoad files and get it.  
 As example let's send file `me4.png` from current directory: `$ curl -F file=@./me4.png http://127.0.0.1:5000/my_file_collection `  
 The response sould look like this:
-```
+```json
 {
   "error": null,
   "data": [
