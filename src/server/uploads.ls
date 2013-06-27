@@ -1,4 +1,4 @@
-require! {\fs, \path, \async, \mongodb}
+require! {\fs, \path, \async, \mongodb, \mime}
 
 delete-file = (opts,req,res,next) -->
   predicate = opts.delete-predicate || (-> true)
@@ -72,7 +72,7 @@ post = (opts,req,res,next) -->
             grid = new mongodb.Grid opts.db, req.params.coll
 
             err, result <~ grid.put buffer, do
-              content_type: file.type
+              content_type: mime.lookup file.name
               metadata: 
                 name: file.name
 
@@ -84,7 +84,6 @@ post = (opts,req,res,next) -->
           # unlink file
           fs.unlink file.path
         ], (err) ~>
-          console.log 1, err, file
           __cbk err, "#{opts.prefix}/#{req.params.coll}/#{file._id}#{if file.name isnt "blob" then "/"+file.name else ""}"
 
     )(file)
