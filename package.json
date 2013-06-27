@@ -1,0 +1,19 @@
+{
+  "name": "cdn-gridfs",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "LiveScript": "*",
+    "express": "3.x",
+    "underscore": "*",
+    "colors": "*",
+    "async": "*",
+    "mongodb": "*",
+    "moment": "1.7.2",
+    "prelude-ls": "~0.6.0"
+  },
+  "engines": {
+    "node": "0.10.9",
+    "npm": "1.2.24"
+  }
+}
